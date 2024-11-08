@@ -4,7 +4,7 @@ import { GestureHandlerRootView, PanGestureHandler, State } from 'react-native-g
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Animated, { useSharedValue } from 'react-native-reanimated';
 import HomeHeader from '../components/home/HomeHeader';
-import Greetings from '../components/Greetings';
+import Greetings from '../components/home/Greetings';
 import { useSection } from '../context/SectionContext';
 
 export default function HomeScreen() {

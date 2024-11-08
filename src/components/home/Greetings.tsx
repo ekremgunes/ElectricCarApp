@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { View, Text } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
-import { useSection } from '../context/SectionContext';
-import Button from './Button';
+import { useSection } from '../../context/SectionContext';
+import Button from '../Button';
 
 type model = {
   name: string,
@@ -30,7 +30,7 @@ const Greetings = () => {
       opacity.value = withTiming(1, { duration: 500, easing: Easing.in(Easing.ease) });
     } else if (section === 2) {
       positionY.value = withTiming(0, { duration: 500, easing: Easing.out(Easing.ease) });
-      opacity.value = withTiming(0.6, { duration: 500, easing: Easing.in(Easing.ease) });
+      opacity.value = withTiming(0.7, { duration: 500, easing: Easing.in(Easing.ease) });
     } else if (section === 3) {
       positionY.value = withTiming(-300, { duration: 500, easing: Easing.in(Easing.ease) });
       opacity.value = withTiming(0, { duration: 500, easing: Easing.in(Easing.ease) });
