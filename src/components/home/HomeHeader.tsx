@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import Avatar from './Avatar';
+import Avatar from '../Avatar';
 import Feather from '@expo/vector-icons/Feather';
 
 const HomeHeader = () => {
