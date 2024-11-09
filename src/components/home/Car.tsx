@@ -31,7 +31,7 @@ const Car = () => {
             positionY.value = withTiming(-screenHeight / 2.5, { duration: 500, easing: Easing.in(Easing.ease) });
             positionX.value = withTiming(screenWidth / 2.2, { duration: 500, easing: Easing.in(Easing.ease) });
         } else if (section == 4) {
-            positionY.value = withTiming(-screenHeight / 1.25, { duration: 500, easing: Easing.in(Easing.ease) });
+            positionY.value = withTiming(-screenHeight / 1.15, { duration: 500, easing: Easing.in(Easing.ease) });
             positionX.value = withTiming(screenWidth / 2.8, { duration: 500, easing: Easing.in(Easing.ease) });
 
         }

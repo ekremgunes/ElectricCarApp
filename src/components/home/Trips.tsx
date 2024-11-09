@@ -10,6 +10,7 @@ const fakeTrips = [
     { time: "00.20", location: "1104 Test Drive", latest: true },
     { time: "01.20", location: "4916 Kebab" },
     { time: "05.20", location: "4131 California Trip" },
+    { time: "00.01", location: "0-100 km/h" },
 ];
 
 type tripItem = {
@@ -34,8 +35,8 @@ const Trips = () => {
     //section listener for animation
     useEffect(() => {
         if (section === 3) {
-            positionY.value = withTiming(screenHeight/2, { duration: 410, easing: Easing.in(Easing.ease) });
-            opacity.value = withTiming(0, { duration: 410, easing: Easing.in(Easing.ease) });
+            positionY.value = withTiming(screenHeight/1.6, { duration: 420, easing: Easing.in(Easing.ease) });
+            opacity.value = withTiming(0, { duration: 340, easing: Easing.in(Easing.ease) });
 
         } else if (section == 4) {
             positionY.value = withTiming(0, { duration: 600, easing: Easing.in(Easing.ease) });
@@ -65,7 +66,7 @@ const Trips = () => {
     }
 
     return (
-        <Animated.View style={[{ position: "absolute" }, animatedStyle]} className='flex-1 w-full absolute bottom-0 h-1/2 z-20'>
+        <Animated.View style={[{ position: "absolute" }, animatedStyle]} className='flex-1 bottom-1 w-full absolute  z-20'>
             <View className='px-4 mt-1 '>
                 <View className='flex-row items-center mb-1'>
                     <MaterialIcons name="keyboard-arrow-down" size={30} color="gray" />
