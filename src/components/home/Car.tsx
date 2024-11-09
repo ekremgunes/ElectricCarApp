@@ -19,6 +19,7 @@ const Car = () => {
         ],
     }));
 
+    //section listener for animation
     useEffect(() => {
         if (section === 1) {
             positionX.value = withTiming(0, { duration: 500, easing: Easing.in(Easing.ease) });
@@ -28,7 +29,7 @@ const Car = () => {
             positionY.value = withTiming(-screenHeight / 5.6, { duration: 500, easing: Easing.out(Easing.ease) });
         } else if (section === 3) {
             positionY.value = withTiming(-screenHeight / 2.5, { duration: 500, easing: Easing.in(Easing.ease) });
-            positionX.value = withTiming(screenWidth / 2.5, { duration: 500, easing: Easing.in(Easing.ease) });
+            positionX.value = withTiming(screenWidth / 2.2, { duration: 500, easing: Easing.in(Easing.ease) });
         } else if (section == 4) {
             positionY.value = withTiming(-screenHeight / 1.25, { duration: 500, easing: Easing.in(Easing.ease) });
             positionX.value = withTiming(screenWidth / 2.8, { duration: 500, easing: Easing.in(Easing.ease) });
@@ -38,7 +39,7 @@ const Car = () => {
 
     return (
         <Animated.View style={[{ position: "relative" }, animatedStyle]} className='mt-2 '>
-            <Image style={{ height: screenHeight * 0.83, width: "100%", objectFit: "contain" }} source={require("../../../assets/car2.png")}></Image>
+            <Image style={{ height: screenHeight * 0.8, width: "100%", objectFit: "contain" }} source={require("../../../assets/car2.png")}></Image>
         </Animated.View>
     )
 }

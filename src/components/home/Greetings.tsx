@@ -22,10 +22,10 @@ const Greetings = () => {
 
   const toogleLockDoors = () => {
     setSection(2)
-    setDoorLock((prev)=>!prev)
+    setDoorLock((prev) => !prev)
   }
 
-  const positionY = useSharedValue(-screenHeight/4);
+  const positionY = useSharedValue(-screenHeight / 4);
   const opacity = useSharedValue(1);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -33,6 +33,7 @@ const Greetings = () => {
     opacity: opacity.value,
   }));
 
+  //section listener for animation
   useEffect(() => {
     if (section === 1) {
       positionY.value = withTiming(0, { duration: 500, easing: Easing.out(Easing.ease) });
@@ -41,8 +42,8 @@ const Greetings = () => {
       positionY.value = withTiming(0, { duration: 500, easing: Easing.out(Easing.ease) });
       opacity.value = withTiming(0.7, { duration: 500, easing: Easing.in(Easing.ease) });
     } else if (section === 3) {
-      positionY.value = withTiming(-screenHeight/2, { duration: 500, easing: Easing.in(Easing.ease) });
-      opacity.value = withTiming(0, { duration: 500, easing: Easing.in(Easing.ease) });
+      positionY.value = withTiming(-screenHeight / 2, { duration: 530, easing: Easing.in(Easing.ease) });
+      opacity.value = withTiming(0, { duration: 530, easing: Easing.in(Easing.ease) });
     }
   }, [section]);
 
