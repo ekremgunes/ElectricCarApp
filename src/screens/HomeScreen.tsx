@@ -6,6 +6,7 @@ import Animated, { useSharedValue } from 'react-native-reanimated';
 import HomeHeader from '../components/home/HomeHeader';
 import Greetings from '../components/home/Greetings';
 import { useSection } from '../context/SectionContext';
+import Car from '../components/home/Car';
 
 export default function HomeScreen() {
   //const [section, setSection] = useState(1);
@@ -37,6 +38,9 @@ export default function HomeScreen() {
 
             <Greetings></Greetings>
 
+            <Car></Car>
+
+            
           </SafeAreaView>
         </PanGestureHandler>
       </GestureHandlerRootView>
