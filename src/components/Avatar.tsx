@@ -7,7 +7,7 @@ type props = {
 }
 
 const Avatar = ({ size = 50, src }: props) => {
-    const defaultSrc = require("../../assets/avatardefault.jpg");
+    const defaultSrc = require("../../assets/avatardefault.jpeg");
     return (
         <View className="">
             <Image

@@ -9,7 +9,7 @@ type model = {
   location: string
 }
 const fakeData: model = {
-  name: "Alya",
+  name: "Emily",
   location: "A. Hilmi Nalcaci cd. 42 Selcuklu Konya / TR"
 }
 
