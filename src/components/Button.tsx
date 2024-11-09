@@ -5,17 +5,17 @@ import WarnTip from './WarnTip';
 
 type props = {
     title: string,
-    icon: string,
+    icon?: string,
     action?: () => void | null,
     warn?: boolean
 }
 
 const Button = ({ title, icon, action, warn }: props) => {
     return (
-        <TouchableOpacity onPress={action} className='bg-gray-100 py-6 px-8 rounded-[33px] justify-center items-center'>
-            {warn && <WarnTip/>}
-            <Ionicons name={icon} size={26} color="gray" />
-            <Text className='font-semibold mt-1.5 text-gray-500 tracking-wide'>{title}</Text>
+        <TouchableOpacity onPress={action} className='bg-stone-200 py-6 px-8 rounded-[33px] justify-center items-center'>
+            {warn && <WarnTip />}
+            {icon && <Ionicons name={icon} size={26} color="#57534e" />}
+            <Text className='font-semibold  text-lg text-stone-600 tracking-wide'>{title}</Text>
         </TouchableOpacity>
     )
 }

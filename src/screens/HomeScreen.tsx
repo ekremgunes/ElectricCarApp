@@ -8,18 +8,18 @@ import Greetings from '../components/home/Greetings';
 import { useSection } from '../context/SectionContext';
 import Car from '../components/home/Car';
 import CarMenu from '../components/home/CarMenu';
+import Trips from '../components/home/Trips';
 
 export default function HomeScreen() {
-  //const [section, setSection] = useState(1);
   const { section, prevSection, setSection } = useSection();
 
-  // scroll event handler
+  // up and down touch handler
   const handleGesture = ({ nativeEvent }: any) => {
     if (nativeEvent.state === State.END) {
-      if (nativeEvent.translationY < -50 && section < 4) {
+      if (nativeEvent.translationY < -60 && section < 4) {
         setSection(section + 1);
         return
-      } else if (nativeEvent.translationY > 50 && section > 1) {
+      } else if (nativeEvent.translationY > 60 && section > 1) {
         setSection(section - 1);
       }
     }
@@ -40,10 +40,10 @@ export default function HomeScreen() {
   }, [section])
 
   return (
-    <SafeAreaView className='bg-white flex-1'>
+    <SafeAreaView className='bg-stone-100 flex-1'>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <PanGestureHandler onHandlerStateChange={handleGesture}>
-          <SafeAreaView className='bg-white flex-1'>
+          <SafeAreaView className='bg-stone-100 flex-1'>
 
             <HomeHeader></HomeHeader>
 
@@ -53,6 +53,7 @@ export default function HomeScreen() {
 
             <Car></Car>
 
+            <Trips></Trips>
 
           </SafeAreaView>
         </PanGestureHandler>
