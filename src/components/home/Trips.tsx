@@ -67,7 +67,7 @@ const Trips = () => {
     }
 
     return (
-        <Animated.View style={[{ position: "absolute" }, animatedStyle]} className='flex-1 bottom-1 w-full absolute  z-20'>
+        <Animated.View style={[{ position: "absolute" }, animatedStyle]} className='flex-1 bottom-2 w-full absolute  z-20'>
             <View className='px-4 mt-1 '>
                 <View className='flex-row items-center mb-1'>
                     <MaterialIcons name="keyboard-arrow-down" size={30} color="gray" />
@@ -76,7 +76,7 @@ const Trips = () => {
                 <ScrollView>
                     {renderFakeData()}
 
-                    <View className='self-center w-1/2 mt-2 p-1'>
+                    <View className='self-center w-1/2 my-2 p-1'>
                         <Button title='More Trips'></Button>
                     </View>
                 </ScrollView>
