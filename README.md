@@ -1,6 +1,7 @@
 ## Modern banking application UI with React Native and Tailwind CSS
 
-💶 Recently, I developed a modern banking application interface with React Native and Tailwind CSS. I focused on coding an impressive design in a clean way, prioritising the user experience.
+Recently, I developed an electric vehicle management application interface using React Native, Tailwind, and TypeScript. Focusing on user experience, I translated a clean design into functional code. The app brings an existing design to life.
+
 
 ### Views:
 
