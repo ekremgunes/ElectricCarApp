@@ -5,6 +5,8 @@ import Fontisto from '@expo/vector-icons/Fontisto';
 import Button from '../Button';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { useSection } from '../../context/SectionContext';
+import { useNavigation } from '@react-navigation/native';
+import { route } from '../../constants/ROUTES';
 
 const fakeTrips = [
     { time: "00.20", location: "1104 Test Drive", latest: true },
@@ -21,6 +23,8 @@ type tripItem = {
 const screenHeight = Dimensions.get('window').height;
 
 const Trips = () => {
+    const navigation = useNavigation();
+
     const { section, prevSection, setSection } = useSection();
     const positionY = useSharedValue(screenHeight/2);
     const opacity = useSharedValue(0);
@@ -31,6 +35,10 @@ const Trips = () => {
         ],
         opacity: opacity.value,
     }));
+
+    const navigateToMap = ()=>{
+        navigation.navigate(route.Map)
+    }
 
     //section listener for animation
     useEffect(() => {
@@ -47,7 +55,7 @@ const Trips = () => {
 
     const renderTripItem = ({ time, location, latest }: tripItem) => {
         return (
-            <TouchableOpacity style={{ opacity: latest ? 1 : 0.6 }} className='bg-white rounded-[33px] items-center flex-row my-1.5 py-5 px-7'>
+            <TouchableOpacity onPress={navigateToMap} style={{ opacity: latest ? 1 : 0.6 }} className='bg-white rounded-[33px] items-center flex-row my-1.5 py-5 px-7'>
                 <Fontisto name="map-marker-alt" size={26} color="#a8a29e" />
                 <View className='ml-7'>
                     <Text className='text-stone-500/70 font-bold tracking-wide'>TOTAL {time}</Text>

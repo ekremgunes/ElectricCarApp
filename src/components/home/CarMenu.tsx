@@ -3,12 +3,14 @@ import React, { useEffect } from 'react'
 import { useSection } from '../../context/SectionContext';
 import Button from '../Button';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native';
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
 
 const CarMenu = () => {
+    const navigation = useNavigation();
     const { section, prevSection, setSection } = useSection();
     const positionY = useSharedValue(0);
     const positionX = useSharedValue(screenHeight/3);

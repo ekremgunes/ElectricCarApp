@@ -2,5 +2,10 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true
-  }
+  },
+  "include": [
+    "env.d.ts", // .env değişkenleri için tanım dosyası
+    "src/**/*", // Projenizin diğer dosyalarını kapsıyorsa bu ayarı koruyabilirsiniz
+    "nativewind-env.d.ts"
+  ]
 }
