@@ -7,26 +7,16 @@ import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from '
 import { useSection } from '../../context/SectionContext';
 import { useNavigation } from '@react-navigation/native';
 import { route } from '../../constants/ROUTES';
+import { fakeTrips } from '../../constants/FAKE_DATA';
+import { TripItem } from '../../interfaces/TripInterface';
 
-const fakeTrips = [
-    { time: "00.20", location: "1104 Test Drive", latest: true },
-    { time: "01.20", location: "4916 Kebab" },
-    { time: "05.20", location: "4131 Istanbul Trip" },
-    { time: "00.01", location: "0-100 km/h" },
-];
 
-type tripItem = {
-    time: string,
-    location: string,
-    latest?: boolean | false
-}
 const screenHeight = Dimensions.get('window').height;
 
 const Trips = () => {
-    const navigation = useNavigation();
-
+    const navigation = useNavigation<any>();
     const { section, prevSection, setSection } = useSection();
-    const positionY = useSharedValue(screenHeight/2);
+    const positionY = useSharedValue(screenHeight / 2);
     const opacity = useSharedValue(0);
 
     const animatedStyle = useAnimatedStyle(() => ({
@@ -36,14 +26,17 @@ const Trips = () => {
         opacity: opacity.value,
     }));
 
-    const navigateToMap = ()=>{
-        navigation.navigate(route.Map)
+    const navigateToMap = (id: number ) => {
+        if (!id) {
+            return
+        }
+        navigation.navigate(route.Map, { id })
     }
 
-    //section listener for animation
+    // Section listener for animation, triggers when section changes
     useEffect(() => {
         if (section === 3) {
-            positionY.value = withTiming(screenHeight/1.6, { duration: 420, easing: Easing.in(Easing.ease) });
+            positionY.value = withTiming(screenHeight / 1.6, { duration: 420, easing: Easing.in(Easing.ease) });
             opacity.value = withTiming(0, { duration: 340, easing: Easing.in(Easing.ease) });
 
         } else if (section == 4) {
@@ -53,9 +46,9 @@ const Trips = () => {
         }
     }, [section]);
 
-    const renderTripItem = ({ time, location, latest }: tripItem) => {
+    const renderTripItem = ({ time, location, latest, id }: TripItem) => {
         return (
-            <TouchableOpacity onPress={navigateToMap} style={{ opacity: latest ? 1 : 0.6 }} className='bg-white rounded-[33px] items-center flex-row my-1.5 py-5 px-7'>
+            <TouchableOpacity onPress={()=>navigateToMap(id)} key={id} style={{ opacity: latest ? 1 : 0.6 }} className='bg-white rounded-[33px] items-center flex-row my-1.5 py-5 px-7'>
                 <Fontisto name="map-marker-alt" size={26} color="#a8a29e" />
                 <View className='ml-7'>
                     <Text className='text-stone-500/70 font-bold tracking-wide'>TOTAL {time}</Text>
@@ -81,8 +74,8 @@ const Trips = () => {
                     <Text className='text-black/60 tracking-wide font-bold text-xl ml-2'>LAST TRIPS</Text>
                 </View>
                 <ScrollView>
-                    {/* renderFakeData fonksiyonu burada çalışacak */}
                     {renderFakeData()}
+
                     <View className='self-center w-1/2 mt-2 p-1'>
                         <Button title='More Trips'></Button>
                     </View>

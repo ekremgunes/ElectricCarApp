@@ -24,7 +24,7 @@ const CarMenu = () => {
         opacity: opacity.value,
     }));
 
-    //section listener for animation
+    // Section listener for animation, triggers when section changes
     useEffect(() => {
         if (section === 2) {
             positionX.value = withTiming(-screenHeight/3, { duration: 500, easing: Easing.in(Easing.ease) });

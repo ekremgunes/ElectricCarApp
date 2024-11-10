@@ -33,7 +33,7 @@ const Greetings = () => {
     opacity: opacity.value,
   }));
 
-  //section listener for animation
+  // Section listener for animation, triggers when section changes
   useEffect(() => {
     if (section === 1) {
       positionY.value = withTiming(0, { duration: 500, easing: Easing.out(Easing.ease) });
