@@ -11,14 +11,14 @@ const MapFooter = () => {
                     <View className='w-4 h-4 rounded-full elevation bg-stone-400'></View>
                     <View className=' ml-4'>
                         <Text className='text-stone-400 font-semibold '>7.40 PM</Text>
-                        <Text className='text-black font-bold text-xl tracking-wide bottom-1'>CaliforniaTrip</Text>
+                        <Text className='text-black font-bold text-xl tracking-wide bottom-1'>Istanbul Trip</Text>
                     </View>
                 </View>
-                <View className='flex-row items-center self-start ml-5 mt-4'>
+                <View className='flex-row items-center self-start ml-5 mt-4 opacity-90'>
                     <View className='w-4 h-4 rounded-full elevation bg-stone-400'></View>
                     <View className=' ml-4'>
-                        <Text className='text-stone-400 font-semibold '>7.40 PM</Text>
-                        <Text className='text-black font-bold text-xl tracking-wide bottom-1'>CaliforniaTrip</Text>
+                        <Text className='text-stone-400 font-semibold '>9.40 PM</Text>
+                        <Text className='text-black font-bold text-xl tracking-wide bottom-1'>Kebap</Text>
                     </View>
                 </View>
 

@@ -26,8 +26,11 @@ const MapScreen = () => {
         setLoading(false);
         return;
       }
-
-      const location = await Location.getCurrentPositionAsync();
+      const location = await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.High,
+        timeout: 5000, // 5 saniye
+        maximumAge: 10000, // 10 saniye
+      });
       setUserLocation({
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
@@ -52,7 +55,6 @@ const MapScreen = () => {
       const points = data.routes[0].legs[0].steps.flatMap((step: any) =>
         decodePolyline(step.polyline.points)
       );
-      console.log("points", points)
       setRouteCoordinates(points);
       setLoading(false);
     } catch (error) {
@@ -66,7 +68,11 @@ const MapScreen = () => {
   }, []);
 
 
-
+  if (loading) {
+    return (<View className='flex-1 h-full w-full z-100 bg-white/50 absolute justify-center items-center'>
+      <Text>Loading ..</Text>
+    </View>)
+  }
   return (
     <View className='flex-1 pt-8'>
       <MapView
@@ -76,8 +82,8 @@ const MapScreen = () => {
         initialRegion={{
           latitude: startLocation.latitude,
           longitude: startLocation.longitude,
-          latitudeDelta: 0.0422,
-          longitudeDelta: 0.0521,
+          latitudeDelta: 0.0722,
+          longitudeDelta: 0.0921,
         }}
       >
         <Marker coordinate={startLocation} title="Başlangıç Noktası" />
@@ -90,16 +96,16 @@ const MapScreen = () => {
 
       <MapHeader />
 
-      <MapFooter/>
+      <MapFooter />
 
-      
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   map: {
-    flex:1,
+    flex: 1,
     position: "absolute",
     zIndex: -100,
     top: 0,

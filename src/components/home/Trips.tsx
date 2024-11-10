@@ -11,7 +11,7 @@ import { route } from '../../constants/ROUTES';
 const fakeTrips = [
     { time: "00.20", location: "1104 Test Drive", latest: true },
     { time: "01.20", location: "4916 Kebab" },
-    { time: "05.20", location: "4131 California Trip" },
+    { time: "05.20", location: "4131 Istanbul Trip" },
     { time: "00.01", location: "0-100 km/h" },
 ];
 
